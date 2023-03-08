@@ -30,6 +30,7 @@ def Fin_gen_int(a, b, n):
 
 
 # Prints
+
 print(f"Temperatura em Farenheit: {Celsius_para_Farenheit(32)}")
 print(f"a é minúsculo? {minusculo('a')}")
 print(f"A é minúsculo? {minusculo('A')}")
