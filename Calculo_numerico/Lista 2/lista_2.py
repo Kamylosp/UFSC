@@ -19,6 +19,14 @@ def frase_maiusculo(fr):
     else:
         return muda_maiusculo(fr[0])
 
+def Fib_gen_in(a, b, n):
+    if (n == 0):
+        return a
+    elif (n == 1):
+        return b
+    else:
+        return Fib_gen_in(a, b, n-1) + Fib_gen_in(a, b, n-2)
+
 def Fin_gen_int(a, b, n):
     if (n == 0):
         return a
@@ -28,16 +36,18 @@ def Fin_gen_int(a, b, n):
         return Fin_gen_int(a, b, n-1) + Fin_gen_int(a, b, n-2)
 
 
+def muda_cifra_cesar(n, c):
+    if (97 <= ord(c) <= 122) or (65 <= ord(c) <= 90):
+        letra = ord(c) + n
+        if (ord(c) < 122 and letra > 122) or (ord(c) < 90 and letra > 90):
+            letra = letra - 26
+        return chr(letra)
+    else:
+        return c
 
-# Prints
 
-print(f"Temperatura em Farenheit: {Celsius_para_Farenheit(32)}")
-print(f"a é minúsculo? {minusculo('a')}")
-print(f"A é minúsculo? {minusculo('A')}")
-print(f"Transformando string em maiuscula: {frase_maiusculo('ola TUDO joia?')}")
-a, b = 3, 2
-print("Fibonacci:", Fin_gen_int(a, b, 0))
-print("Fibonacci:", Fin_gen_int(a, b, 1))
-print("Fibonacci:", Fin_gen_int(a, b, 2))
-print("Fibonacci:", Fin_gen_int(a, b, 3))
-print("Fibonacci:", Fin_gen_int(a, b, 4))
+def cifra_cesar (n, fr):
+    if (len(fr) > 1):
+        return muda_cifra_cesar(n, fr[0]) + cifra_cesar(n, fr[1:])
+    else:
+        return muda_cifra_cesar(n, fr[0])
