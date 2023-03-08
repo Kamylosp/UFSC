@@ -39,8 +39,8 @@ def Fin_gen_int(a, b, n):
 def muda_cifra_cesar(n, c):
     if (97 <= ord(c) <= 122) or (65 <= ord(c) <= 90):
         letra = ord(c) + n
-        if (ord(c) < 122 and letra > 122) or (ord(c) < 90 and letra > 90):
-            letra = letra - 26
+        if (ord(c) <= 122 and letra > 122) or (ord(c) <= 90 and letra > 90):
+            letra -= 26
         return chr(letra)
     else:
         return c
