@@ -1,7 +1,6 @@
 # Questão 1
 
 n = 11
-base = 9.3132257e-10
 
 def fatorial (x):
     if (x <= 1):  
