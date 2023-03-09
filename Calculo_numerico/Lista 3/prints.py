@@ -6,9 +6,9 @@ from math import pi, sin, cos
 x = 9.3132257e-10
 y = Decimal(2.4)
 
-for i in range(1, 21):
-    if (abs(cos(pi/i) - l.cos(pi/i)) < x):
-        print(f"Passou no teste - pi/{i}")
+# for i in range(1, 21):
+#     if (abs(cos(pi/i) - l.cos(pi/i)) < x):
+#         print(f"Passou no teste - pi/{i}")
 
 
 # Questão 2
@@ -24,7 +24,9 @@ l.reverter(L)
 
 
 # Questão 4
-
+lista = [1, 5, 8, 1, 2, 6, 7, 0]
+l.ordena(lista)
+print(lista)
 
 
 
