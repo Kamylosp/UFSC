@@ -36,18 +36,6 @@ def Fin_gen_int(a, b, n):
         return Fin_gen_int(a, b, n-1) + Fin_gen_int(a, b, n-2)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 def muda_cifra_cesar(n, c):
     if (97 <= ord(c) <= 122) or (65 <= ord(c) <= 90):
         letra = ord(c) + n
