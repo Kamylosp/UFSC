@@ -5,11 +5,15 @@ import numpy as np
 
 # make data:
 np.random.seed(10)
-D = np.random.normal((3, 5, 4), (1.25, 1.00, 1.25), (100, 3))
+D = np.random.normal((3, 5, 4), (1.25, 1.00, 1.25), (3, 100))
 
 # plot
 fig, ax = plt.subplots()
-VP = ax.boxplot(D, positions=[2, 4, 6], widths=1.5, patch_artist=True,
+
+print(len(D))
+print(np.arange(2, 2*len(D) + 2, step=2))
+
+VP = ax.boxplot(D, positions=[2, 4 , 6], widths=1.5, patch_artist=True,
                 showmeans=False, showfliers=False,
                 medianprops={"color": "white", "linewidth": 0.5},
                 boxprops={"facecolor": "C0", "edgecolor": "white",
