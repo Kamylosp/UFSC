@@ -35,7 +35,7 @@ lista = [[1.5, 2, 5, 9, 5], [3,4, 7, 1, 6], [5, 6, 2, 5, 4]]
 
 
 # TESTAR SE A GERA LISTA ALEATORIA FUNCIONA CORRETAMENTE
-lista3 = gera_lista_float_aleatoria(3, 3)
+lista3 = gera_lista_inteiros_aleatoria(3, 3)
 
 print(lista3)
 
@@ -43,8 +43,7 @@ print(lista3)
 # for i in range(5):
 #     lista2.append(np.random.randint(8, size=10))
 
-# op.printa_informacoes(lista[0])
+op.printa_informacoes(lista3[0])
 
-
-# grafico = bx(lista3)
-# grafico.mostrar_grafico()
+grafico = bx(lista3)
+grafico.mostrar_grafico()
