@@ -31,3 +31,6 @@ print(lista)
 
 
 # Questão 5
+
+
+# Questão 6
