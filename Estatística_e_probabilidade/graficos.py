@@ -18,8 +18,8 @@ class boxplot():
                         whiskerprops={"color": self.cor_barras, "linewidth": 1.5},
                         capprops={"color": self.cor_barras, "linewidth": 1.5})
 
-        self.ax.set(xlim=(0))
-        self.ax.set(ylim=(0))
+        # self.ax.set(xlim=(0))
+        # self.ax.set(ylim=(0))
 
     def nome_das_barras (self, lista_nomes):
         plt.xticks(np.arange(2, 2*self.qtdd_colunas + 2, step=2), lista_nomes)
