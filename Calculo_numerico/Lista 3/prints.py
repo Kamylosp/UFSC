@@ -15,18 +15,18 @@ y = Decimal(2.4)
 
 
 # Questão 3
-L = [3, 2, 1]
+L = [3, 2, 1, 8, 6, 4]
 A = l.reversa(L)
 #print("L:          ", L)
 l.reverter(L)
-#print("reverter(L):", L)
-#print("reversa(L): ", A)
+print("reverter(L):", L)
+print("reversa(L): ", A)
 
 
 # Questão 4
 lista = [1, 5, 8, 1, 2, 6, 7, 0]
 l.ordena(lista)
-print(lista)
+# print(lista)
 
 
 

@@ -12,8 +12,12 @@ maximo_amostra <- max(x)
 quartil_1 <- quantile(x, 0.25)
 quartil_3 <- quantile(x, 0.75)
 quartis <- quantile(x, c(0.25, 0.75))
+amplitude <- (range(x))[2] - (range((x)))[1]
 
 
-print(minimo_amostra)
 
-boxplot(x)
+hist(x, main = paste("Histograma aula 16/03/23"), 
+     xlab = "[cm]", breaks = "Sturges", col = "lightgreen", lwd=3)
+
+abline(v=mean(x), h=0, lwd=2, col="red")
+

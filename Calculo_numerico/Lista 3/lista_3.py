@@ -1,6 +1,6 @@
 # Questão 1
 
-n = 11
+n = 15
 
 def fatorial (x):
     if (x <= 1):  
@@ -32,7 +32,9 @@ def cos (x):
 # Questão 3
 def reverter (L):
     for i in range(0, (len(L)//2)):
-        L[i], L[len(L)-1] = L[len(L)-1], L[i]
+        L[i] = L[-1-i] - L[i]
+        L[-1-i] = L[-1-i] - L[i]
+        L[i] = L[-1-i] + L[i]
 
 def reversa (L):
     A = L[:]
