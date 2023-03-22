@@ -1,8 +1,6 @@
 # Questão 1
 
 n = 15
-n2_30 = 9.3132257e-10
-
 
 def fatorial (x):
     if (x <= 1):  
@@ -30,13 +28,18 @@ def cos (x):
 
 # Questão 2
 def invsqrt(x):
-    soma, delta, n = 0, -1, 0
-    while (abs(delta) > n2_30):
-        delta = exp(-1, n)*fatorial(2*n)*exp(x-1, n)/(exp(fatorial(n), 2) * exp(4, n))
-        soma += delta
-    return soma
-
-
+    if (x <= 2):
+        soma, delta, n = 0, -1, 0
+        while (abs(delta) > 0.00000000001):
+            delta = exp(-1, n)
+            delta *= fatorial(2*n)
+            delta *= exp(x-1.0, n)
+            delta /= (exp(fatorial(n), 2) * exp(4, n))
+            soma += delta
+            n += 1
+        return soma
+    else:
+        return invsqrt(x/4) * 0.5
 
 # Questão 3
 def reverter (L):
@@ -46,22 +49,34 @@ def reverter (L):
         L[i] = L[-1-i] + L[i]
 
 def reversa (L):
-    A = L[:]
+    A = []
+    for i in range(0, len(L)):
+        A.append(L[i])
     reverter(A)
     return A
 
 
 # Questão 4
 def ordena(L):
-    for i in range(1, len(L)):
-        key_item = L[i]
+    A = L[:]
+    for i in range(1, len(A)):
+        key_item = A[i]
 
         j = i - 1
 
-        while j >= 0 and L[j] > key_item:
-            L[j + 1] = L[j]
+        while j >= 0 and A[j] > key_item:
+            A[j + 1] = A[j]
             j -= 1
-        L[j + 1] = key_item
-    return L
+        A[j + 1] = key_item
+    return A
 
+
+
+def Collatz(x0):
+    return 2
+
+
+
+def logaritmo_base2(x):
+    pass
 
