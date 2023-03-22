@@ -12,7 +12,7 @@ y = Decimal(2.4)
 
 
 # Questão 2
-
+print(l.invsqrt(2))
 
 # Questão 3
 L = [3, 2, 1, 8, 6, 4]

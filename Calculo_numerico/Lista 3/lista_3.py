@@ -1,6 +1,8 @@
 # Questão 1
 
 n = 15
+n2_30 = 9.3132257e-10
+
 
 def fatorial (x):
     if (x <= 1):  
@@ -25,7 +27,14 @@ def cos (x):
     for i in range (n):
         soma += (1 - 2*(i%2))/(fatorial(2*i)) * (exp(x, 2*i))
     return soma
-        
+
+# Questão 2
+def invsqrt(x):
+    soma, delta, n = 0, -1, 0
+    while (abs(delta) > n2_30):
+        delta = exp(-1, n)*fatorial(2*n)*exp(x-1, n)/(exp(fatorial(n), 2) * exp(4, n))
+        soma += delta
+    return soma
 
 
 
