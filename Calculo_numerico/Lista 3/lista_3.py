@@ -1,12 +1,13 @@
 # Questão 1
 
 n = 15
+n2_30 = 9.3132257e-10
 
 def fatorial (x):
-    if (x <= 1):  
-        return 1
-    else:       
-        return x*fatorial(x-1)
+    produto = float(1)
+    for i in range(1, x+1):
+        produto *= i
+    return produto
 
 def exp(base, expoente):
     output = 1
@@ -27,16 +28,21 @@ def cos (x):
     return soma
 
 # Questão 2
+def calcula_delta (x, n):
+    if (n%2 == 0):
+        i = 1.0
+    else:
+        i = -1.0
+    fat = fatorial(n)
+    return i * fatorial(2*n) * exp(x-1.0, n) / (fat*fat * exp(4, n))
+
 def invsqrt(x):
-    if (x <= 2):
-        soma, delta, n = 0, -1, 0
-        while (abs(delta) > 0.00000000001):
-            delta = exp(-1, n)
-            delta *= fatorial(2*n)
-            delta *= exp(x-1.0, n)
-            delta /= (exp(fatorial(n), 2) * exp(4, n))
+    if (x <= 1.5):
+        soma, delta, n = 0, float(1), 0
+        while (abs(delta) > n2_30):
+            delta = calcula_delta(x, n)
             soma += delta
-            n += 1
+            n+=1
         return soma
     else:
         return invsqrt(x/4) * 0.5
@@ -72,11 +78,7 @@ def ordena(L):
 
 
 
-def Collatz(x0):
-    return 2
-
-
-
+# Questão 5
 def logaritmo_base2(x):
     pass
 
