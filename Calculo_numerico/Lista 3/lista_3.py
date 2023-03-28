@@ -4,19 +4,21 @@ n = 15
 n2_30 = 9.3132257e-11
 
 def fatorial (x):
-    produto = float(1)
-    for i in range(1, x+1):
-        produto *= i
-    return produto
+    if (x <= 1):  
+        return 1
+    else:       
+        return x*fatorial(x-1)
 
 def exp(base, expoente):
-    if (expoente >= 0):
+    if expoente == 0:
+        return 1
+    elif expoente < 0:
+        return 1/exp(base, -1*expoente)
+    else:
         output = 1
         for i in range (0, expoente):
             output *= base
         return output
-    else:
-        return float(1/exp(base, expoente * (-1)))
 
 def sin (x):
     soma = 0
@@ -79,37 +81,32 @@ def ordena(L):
         A[j + 1] = key_item
     return A
 
-
-
 # Questão 5
 def logaritmo_base2(x):
-    l0 = 1
+    ln = 1
 
-    if (exp(2, l0) <= x):
+    if (exp(2, ln) <= x):
         while (True):
-            if (x < exp(2, l0+1)): break
-            l0 += 1
+            if (x < exp(2, ln+1)): break
+            ln += 1
     else:
         while (True):
-            l0 -= 1
-            if (exp(2, l0) <= x): break
+            ln -= 1
+            if (exp(2, ln) <= x): break
 
-    print(f" {exp(2, l0)} <= {x} < {exp(2, l0 + 1)}")
+    delta, n = 2.0, 0
+    x = x*exp(2, -ln)
 
-    
-    
-
-    return 
-
-
-
-
-
-
-
-
-
-
+    while abs(delta - exp(2, -(n+1))) >= n2_30:
+        if x*x < 2:
+            x = x*x
+            delta = 0
+        else:
+            x = x*x/2.0
+            delta = 1.0*exp(2, -(n+1))
+            ln += delta
+        n+=1
+    return ln
 
 
 # Questão 6
@@ -122,8 +119,3 @@ def Collatz(x0):
         else:
             x0 = 3 * x0 + 1
         i += 1
-
-
-x = 10
-print(logaritmo_base2(x))
-

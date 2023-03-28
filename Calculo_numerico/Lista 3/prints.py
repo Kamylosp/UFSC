@@ -12,7 +12,7 @@ y = Decimal(2.4)
 
 
 # Questão 2
-print(l.invsqrt(2))
+# print(l.invsqrt(2))
 
 # Questão 3
 L = [3, 2, 1, 8, 6, 4]
@@ -25,12 +25,17 @@ l.reverter(L)
 
 # Questão 4
 lista = [1, 5, 8, 1, 2, 6, 7, 0]
+
 l.ordena(lista)
 # print(lista)
 
 
 
+
 # Questão 5
+x = 36
 
+# print(l.exp(2, -1))
+print(l.logaritmo_base2(x))
 
-# Questão 6
+# Questão 3
