@@ -1,7 +1,7 @@
 # Questão 1
 
 n = 15
-n2_30 = 9.3132257e-10
+n2_30 = 9.3132257e-11
 
 def fatorial (x):
     produto = float(1)
@@ -10,10 +10,13 @@ def fatorial (x):
     return produto
 
 def exp(base, expoente):
-    output = 1
-    for i in range (0, expoente):
-        output *= base
-    return output
+    if (expoente >= 0):
+        output = 1
+        for i in range (0, expoente):
+            output *= base
+        return output
+    else:
+        return float(1/exp(base, expoente * (-1)))
 
 def sin (x):
     soma = 0
@@ -80,5 +83,47 @@ def ordena(L):
 
 # Questão 5
 def logaritmo_base2(x):
-    pass
+    l0 = 1
+
+    if (exp(2, l0) <= x):
+        while (True):
+            if (x < exp(2, l0+1)): break
+            l0 += 1
+    else:
+        while (True):
+            l0 -= 1
+            if (exp(2, l0) <= x): break
+
+    print(f" {exp(2, l0)} <= {x} < {exp(2, l0 + 1)}")
+
+    
+    
+
+    return 
+
+
+
+
+
+
+
+
+
+
+
+
+# Questão 6
+def Collatz(x0):
+    i = 0
+    while True:
+        if (x0 == 1): return i
+        if (x0 % 2 == 0):
+            x0 /= 2
+        else:
+            x0 = 3 * x0 + 1
+        i += 1
+
+
+x = 10
+print(logaritmo_base2(x))
 
