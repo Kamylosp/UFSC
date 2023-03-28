@@ -9,6 +9,8 @@ def fatorial (x):
     else:       
         return x*fatorial(x-1)
 
+
+
 def exp(base, expoente):
     if expoente == 0:
         return 1
