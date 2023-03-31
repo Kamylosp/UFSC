@@ -84,31 +84,32 @@ def ordena(L):
     return A
 
 # Questão 5
-def logaritmo_base2(x):
-    ln = 1
+# def logaritmo_base2(x):
+#     ln = 1
 
-    if (exp(2, ln) <= x):
-        while (True):
-            if (x < exp(2, ln+1)): break
-            ln += 1
-    else:
-        while (True):
-            ln -= 1
-            if (exp(2, ln) <= x): break
+#     if (exp(2, ln) <= x):
+#         while (True):
+#             if (x < exp(2, ln+1)): break
+#             ln += 1
+#     else:
+#         while (True):
+#             ln -= 1
+#             if (exp(2, ln) <= x): break
 
-    delta, n = 2.0, 0
-    x = x*exp(2, -ln)
+#     delta, n = 2.0, 0
+#     x = x*exp(2, -ln)
 
-    while abs(delta - exp(2, -(n+1))) >= n2_30:
-        if x*x < 2:
-            x = x*x
-            delta = 0
-        else:
-            x = x*x/2.0
-            delta = 1.0*exp(2, -(n+1))
-            ln += delta
-        n+=1
-    return ln
+#     while abs(delta - exp(2, -(n+1))) >= n2_30:
+#         print(x)
+#         if x*x < 2:
+#             x = x*x
+#             delta = 0
+#         else:
+#             x = x*x/2.0
+#             delta = 1.0*exp(2, -(n+1))
+#             ln += delta
+#         n+=1
+    # return ln
 
 
 # Questão 6
