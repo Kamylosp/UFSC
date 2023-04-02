@@ -25,11 +25,12 @@ def norma_op(A):
 
 
 def apaga_par (L):
-    i =0
+    i = 0
     while i < len(L):
         if e_par (L[i]):
             L= L [:i] + L[i +1:]
-        i+=1
+        else:
+            i+=1
     return L
 
 T = [[1,2,3], [4,5,6]]
