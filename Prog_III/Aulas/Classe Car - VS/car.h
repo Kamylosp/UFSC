@@ -6,6 +6,10 @@ class Car {
         double price;
 
     public:
+
+        Car();
+        Car(double _power, double _price);
+        
         double getPower ();
         double getPrice ();
         void setPower (double pot);
