@@ -30,13 +30,15 @@ def Q3_f_(M, c, t):
     return (9.81 - 9.81/np.exp((c*t)/M))/c - (9.81*t)/(np.exp((c *t)/M)*M)
 
 def lista_5_ex_3 (c, v, t):
-    M, M_anterior = 1, 10
+    M, M_anterior = 10, 1
 
     while abs((M-M_anterior)/M) > tol:
         M_anterior = M
         M = M - Q3_f(M, c, v, t)/Q3_f_(M, c, t)
 
     return M
+
+print(lista_5_ex_3(1, 100, 50))
 
 # Questão 4
 
@@ -72,13 +74,13 @@ def lista_5_ex_4 (temp_crit, pres_crit):
 
     return(3/v)
 
-temp_cri = 500
-p_cri = 10000
+# temp_cri = 500
+# p_cri = 10000
 
-# print(Q4_f(v, Q4_a(temp_cri, p_cri), Q4_b(temp_cri, p_cri)) + 65000)
-print(lista_5_ex_4(temp_cri, p_cri))
+# # print(Q4_f(v, Q4_a(temp_cri, p_cri), Q4_b(temp_cri, p_cri)) + 65000)
+# print(lista_5_ex_4(temp_cri, p_cri))
 
-def teste(v, a, b):
-    return (120.7717)/(v - b) - a/(v*(v+b)*np.sqrt(233.15))
+# def teste(v, a, b):
+#     return (120.7717)/(v - b) - a/(v*(v+b)*np.sqrt(233.15))
 
-print(teste(0.00253683, 64.04900765142928, 0.0022429399999999997))
+# print(teste(0.00253683, 64.04900765142928, 0.0022429399999999997))
