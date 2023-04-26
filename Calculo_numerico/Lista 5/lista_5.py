@@ -6,21 +6,25 @@ def newton (f, f_p, x):
     return x - f(x)/f_p(x)
 
 
+
 # Questão 2
-def Q2_f(t, p):
-    return 75*np.exp(-1.5*t) + 20*np.exp(-0.075*t)/95 - p
-
-def Q2_f_(t):
-    return (-112.5/np.exp(1.5* t) - 1.5/np.exp(0.075* t))/95
-
 def lista_5_ex_2 (p):
-    t, t_anterior = 2, 0
+    t, t_anterior = 1, 0
 
     while abs((t-t_anterior)/t) > tol:
         t_anterior = t
-        t = t - Q2_f(t, p)/Q2_f_(t)
+
+        Q = (75*np.exp(-1.5*t) + 20*np.exp(-0.075*t))/95 - p
+        Q_ = -1.18421/np.exp(1.5*t) - 0.0157895/np.exp(0.075*t)
+
+        t = t - Q/Q_
 
     return t
+
+
+
+
+
 
 # Questão 3
 def Q3_f(M, c, v, t):
@@ -45,50 +49,29 @@ def lista_5_ex_3 (c, v, t):
 # Questão 4
 R = 0.518
 T = 273.15 - 40
-p = 65000
 
 def Q4_f(v, a, b):
-    return (R*T)/(v - b) - a/(v*(v+b)*np.sqrt(T)) - p
+    return (R*T)/(v - b) - a / (v * (v+b) * np.sqrt(T)) - 65000
 
 def Q4_f_(v, a, b):
-    return -(R*T)/np.power(v - b, 2) - (a/np.sqrt(T)) * (b+2*v)/((v*v) * (b+v)**2)
+    return (a*(b + 2*v)) / (np.sqrt(T) * (v**2) * ((b+v)**2)) - (R*T) / ((b-v)**2)
 
-
-def Q4_a(Tc, Pc):
-    return 0.727*(R**2) * np.power(Tc, 2.5) / Pc
-
-def Q4_b(Tc, Pc):
-    return 0.0866 * R * Tc / Pc
 
 def lista_5_ex_4 (temp_crit, pres_crit):
-    a = Q4_a(temp_crit, pres_crit)
-    b = Q4_b(temp_crit, pres_crit)
 
-    print("a: ", a)
-    print("b: ", b)
+    a = (0.427 * (R*R) * np.power(temp_crit, 2.5)) / (pres_crit)
+    b = (0.0866 * R * temp_crit) / (pres_crit)
 
-    v, v_anterior = 0.006, 0
+    print(a, b)
 
-    # print("f(): ", Q4_f(v, a, b))
-    # print("f'(): ", Q4_f_(v, a, b))
+    v, v_anterior = 0.001, 0
 
     while abs((v-v_anterior)/v) > tol:
-        # print("v: ", v)
         v_anterior = v
+        print(v)
         v = v - Q4_f(v, a, b)/Q4_f_(v, a, b)
 
     return(3/v)
-
-temp_cri = 500
-p_cri = 10000
-
-# print(Q4_f(v, Q4_a(temp_cri, p_cri), Q4_b(temp_cri, p_cri)) + 65000)
-# print(lista_5_ex_4(temp_cri, p_cri))
-
-# def teste(v, a, b):
-#     return (120.7717)/(v - b) - a/(v*(v+b)*np.sqrt(233.15))
-
-# print(teste(0.00253683, 64.04900765142928, 0.0022429399999999997))
 
 
 # Questão 5
@@ -121,4 +104,26 @@ def calculadora_do_cidadao (valor = None, juros = None, tempo = None, prestacao 
 
 
 
+
+
 # Questão 6
+taxa = 1.0e8 # Operações / segundo
+e = np.exp(1)
+
+
+def fat(x):
+    out = 1
+    while (x > 1):
+        out *= x
+        x -= 1
+    return out
+
+def l(n):
+    2*(1+e)*fat(n)
+
+
+def lista_5_ex_6_lap(t):
+    return 1
+
+def lista_5_ex_6_esc(t):
+    return 2
