@@ -5,8 +5,6 @@ tol = 9.3132257e-10
 def newton (f, f_p, x):
     return x - f(x)/f_p(x)
 
-
-
 # Questão 2
 def lista_5_ex_2 (p):
     t, t_anterior = 1, 0
@@ -20,11 +18,7 @@ def lista_5_ex_2 (p):
         t = t - Q/Q_
 
     return t
-
-
-
-
-
+    
 
 # Questão 3
 def Q3_f(M, c, v, t):
@@ -41,35 +35,30 @@ def lista_5_ex_3 (c, v, t):
         M = M - Q3_f(M, c, v, t)/Q3_f_(M, c, t)
 
     return M
-
-# print(lista_5_ex_3(1, 100, 50))
-
-
-
+    
 # Questão 4
 R = 0.518
 T = 273.15 - 40
-
-def Q4_f(v, a, b):
-    return (R*T)/(v - b) - a / (v * (v+b) * np.sqrt(T)) - 65000
-
-def Q4_f_(v, a, b):
-    return (a*(b + 2*v)) / (np.sqrt(T) * (v**2) * ((b+v)**2)) - (R*T) / ((b-v)**2)
-
 
 def lista_5_ex_4 (temp_crit, pres_crit):
 
     a = (0.427 * (R*R) * np.power(temp_crit, 2.5)) / (pres_crit)
     b = (0.0866 * R * temp_crit) / (pres_crit)
 
-    print(a, b)
+    # Cálculo do chute inicial, com análise gráfica
+    delta=0.1
+    v = b+delta
+    while (R*T)/(v - b) - a / (v * (v+b) * np.sqrt(T)) - 65000 <0:
+        delta/=2
+        v = b+delta
 
-    v, v_anterior = 0.001, 0
+    while abs(delta) > tol:
 
-    while abs((v-v_anterior)/v) > tol:
-        v_anterior = v
-        print(v)
-        v = v - Q4_f(v, a, b)/Q4_f_(v, a, b)
+        f = (R*T)/(v - b) - a / (v * (v+b) * np.sqrt(T)) - 65000
+        f_ = (a*(b + 2*v)) / (np.sqrt(T) * (v**2) * ((b+v)**2)) - (R*T) / ((b-v)**2)
+
+        delta = (f/f_)
+        v = v - delta
 
     return(3/v)
 
@@ -88,8 +77,6 @@ def calculadora_do_cidadao (valor = None, juros = None, tempo = None, prestacao 
     elif not juros:
         j, j_anterior = 0.001, 0
 
-        # print(Q5_f(valor, j, tempo, prestacao), Q5_f_(valor, j, tempo, prestacao))
-
         while abs((j-j_anterior)/j) > tol:
             j_anterior = j
             j = j - Q5_f(valor, j, tempo, prestacao)/Q5_f_(valor, j, tempo, prestacao)
@@ -103,27 +90,34 @@ def calculadora_do_cidadao (valor = None, juros = None, tempo = None, prestacao 
         return valor / ( (1-1/np.power(1+juros, tempo)) / juros)
 
 
-
-
-
 # Questão 6
-taxa = 1.0e8 # Operações / segundo
-e = np.exp(1)
-
-
-def fat(x):
-    out = 1
-    while (x > 1):
-        out *= x
-        x -= 1
-    return out
-
 def l(n):
-    2*(1+e)*fat(n)
-
+    if (n==1):
+        return 0
+    return n*l(n-1) + 3*(n-1) + 2
 
 def lista_5_ex_6_lap(t):
-    return 1
+    n_operacoes = t* 1.0e8
+    i = 1
+
+    while n_operacoes - l(i)  > 0: i += 1
+
+    return(i-1)
+
+def l2(n):
+    return (n-1)*(4*n*n + n + 6)/6
 
 def lista_5_ex_6_esc(t):
-    return 2
+    n_operacoes = t* 1.0e8
+
+    delta = 10000
+    n = 100000
+
+    while delta >= 1:
+        while (n_operacoes - l2(n)) > 0: n += delta
+        
+        while (n_operacoes - l2(n)) < 0: n -= delta
+        
+        delta /= 10
+    
+    return n
