@@ -2,29 +2,36 @@
 #include "car.h"
 using namespace std;
 
-/*Car *CreateCarStandard (){
-    Car *car = new Car;
-    cout << "adress car: " << car << endl;
-    cout << "pricec car: " << car->getPrice() << endl;
+// g++ main.cpp car.cpp -o main.exe
 
-    return car;
-}*/
+void test (Car object){
+    cout << "Price of BMW in the test function is: " << object.getPrice() << endl;
+}
 
 int main()
 {
-    Car BMW(1200, 100);
+    Car BMW(328, 41245);
 
-    cout << BMW.getPower() << endl;
-    cout << BMW.getPrice() << endl;
+    cout << "Power of BMW is: " << BMW.getPower() << endl;
+    cout << "Price of BMW is: " << BMW.getPrice() << endl;
+    cout << "------" << endl;
+/*
+    Car BMW2;
+    cout << "Power of BMW2 is: " << BMW2.getPower() << endl;
+    cout << "Price of BMW2 is: " << BMW2.getPrice() << endl;
+    cout << "------" << endl;
 
+    BMW2 = BMW;
+    cout << "Power of BMW2 is: " << BMW2.getPower() << endl;
+    cout << "Price of BMW2 is: " << BMW2.getPrice() << endl;
+    cout << "------" << endl;
+    BMW2.printAdress();
+*/
+/*
+    Car *Ferrari = new Car(1234, 123456);
+    delete Ferrari;
+*/
+    BMW.setPower(1000).setPrice(150000);
+    BMW.showInfo();
 
-    /*   
-    Car*c = CreateCarStandard();
-
-    cout << "value c: " << c << endl;
-    cout << "adress c: " << &c << endl;
-
-    double price = c->getPrice();
-    cout << "Price: " << price << endl;
-    return 0;*/
 }
