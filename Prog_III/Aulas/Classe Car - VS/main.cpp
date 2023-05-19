@@ -10,11 +10,14 @@ void test (Car object){
 
 int main()
 {
+
+/*
     Car BMW(328, 41245);
 
     cout << "Power of BMW is: " << BMW.getPower() << endl;
     cout << "Price of BMW is: " << BMW.getPrice() << endl;
     cout << "------" << endl;
+*/
 /*
     Car BMW2;
     cout << "Power of BMW2 is: " << BMW2.getPower() << endl;
@@ -31,7 +34,22 @@ int main()
     Car *Ferrari = new Car(1234, 123456);
     delete Ferrari;
 */
-    BMW.setPower(1000).setPrice(150000);
-    BMW.showInfo();
+    Car BMW;
 
+    cout << "Power of BMW is: " << BMW.getPower() << endl;
+    cout << "Price of BMW is: " << BMW.getPrice() << endl;
+    cout << "------" << endl;
+
+    BMW.acelerate(50);
+    cout << "New Speed : " << BMW.getSpeed() << " [km/h]" << endl;
+    BMW.acelerate(55.5);
+    cout << "New Speed : " << BMW.getSpeed() << " [km/h]" << endl;
+    BMW.acelerate("min");
+    cout << "New Speed : " << BMW.getSpeed() << " [km/h]" << endl;
+    BMW.acelerate("max");
+    cout << "New Speed : " << BMW.getSpeed() << " [km/h]" << endl;
+    BMW.acelerate(8, 34);
+    cout << "New Speed : " << BMW.getSpeed() << " [km/h]" << endl;
+    BMW.acelerate("15");
+    cout << "New Speed : " << BMW.getSpeed() << " [km/h]" << endl;
 }
