@@ -31,8 +31,7 @@ def solve_determinante (A):
 
     return out
 
-
-n = 100
+n = 115
 
 tabela = np.zeros((2, n + 2))
 
@@ -78,20 +77,9 @@ b = tabela[:, 1]
 B = A.transpose() @ A
 c = A.transpose() @ b
 
-####a funcao rref nao funcionou corretamente
-# M = np.concatenate((B, c.reshape((3, 1))), axis=1)  # Matriz aumentada do sistema Bx=c
-# alpha = rref(M)[0][-1,:]
-
 alpha = np.linalg.solve(B, c)
-######################
-# Plotagem
-######################
 
 fig, axs = plt.subplots(1, 1, figsize=(6, 6))
-
-######################
-# Criação das filas
-######################
 
 axs.set_title("Tempo de criação das listas")
 axs.set_xlabel("Tamanho da lista")
@@ -101,11 +89,15 @@ x, y = tabela[0, :], tabela[1, :]
 
 axs.plot(x, y, 'ro',alpha=0.5, label="Testes")
 
-### Regressão quadrática
 
 plt.plot(x, y, 'ro')
 im = [alpha[0] + alpha[1] * t + alpha[2] * t ** 2 +alpha[3] * t ** 3 for t in dominio]
 plt.plot(dominio, im, 'b', label="Regressão cubica")
+
+print()
+print("-"*30)
+print("Regressão Cúbica")
+print("Coefs: ", alpha)
 
 tabela = tabela.transpose()
 
@@ -125,6 +117,12 @@ alpha = np.linalg.solve(B, c)
 im = [alpha[0] + alpha[1] * t + alpha[2] * t ** 2  for t in dominio]
 plt.plot(dominio, im, 'g', label="Regressão quadrada")
 
+print()
+print("-"*30)
+print("Regressão Quadrática")
+print("Coefs: ", alpha)
+
+
 A = np.zeros((m, 2))
 for i in range(m):
     A[i, 0] = 1
@@ -139,5 +137,10 @@ alpha = np.linalg.solve(B, c)
 
 im = [alpha[0] + alpha[1] * t  for t in dominio]
 plt.plot(dominio, im, 'y', label="Regressão linear")
+
+print()
+print("-"*30)
+print("Regressão Linear")
+print("Coefs: ", alpha)
 
 plt.show()
