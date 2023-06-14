@@ -49,7 +49,7 @@ class Teacher : public Person, public University {
     string getCourse ();
 };
 
-class TeachingAssistant : Student, Teacher{
+class TeachingAssistant : public Student, public Teacher{
     public:
     
     TeachingAssistant(string, string, string, string, string, string, string);
@@ -81,9 +81,9 @@ int main () {
     cout<<assistente.Student::getBirthDate()<<endl;
     cout<<assistente.Student::getSex()<<endl;
     cout<<assistente.Student::getUname()<<endl;
-    cout<<"Student's department"<<endl;
+    cout<<"Student's department: ";
     cout<<assistente.Student::getDepartment()<<endl;
-    cout<<"Teaching department"<<endl;
+    cout<<"Teaching department: ";
     cout<<assistente.Teacher::getDepartment()<<endl;
     cout<<assistente.getCourse()<<endl;
     
@@ -147,5 +147,6 @@ string Teacher::getCourse (){
 
 // Classe TeachingAssistant
 TeachingAssistant::TeachingAssistant (string nome, string data, string sexo, string universidade, string stu_depart, string tea_depart, string curso) :
-Student(nome, data, sexo, universidade, stu_depart), Teacher (nome, data, sexo, universidade, tea_depart, curso) {}
-
+Student(nome, data, sexo, universidade, stu_depart), Teacher (nome, data, sexo, universidade, tea_depart, curso) {
+    cout<<"Inicio"<<endl;
+}
