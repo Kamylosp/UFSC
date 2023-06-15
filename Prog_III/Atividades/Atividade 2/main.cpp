@@ -1,3 +1,7 @@
+/*  Atividade 2 de Programação III
+    Alunos: Kamylo Serafim Porto e Pedro Augusto Vargas Dantas
+    Turma: Sexta-feira */
+
 #include <iostream>
 #include <string.h>
 
@@ -50,8 +54,7 @@ class Teacher : public Person, public University {
 };
 
 class TeachingAssistant : public Student, public Teacher{
-    public:
-    
+    public:   
     TeachingAssistant(string, string, string, string, string, string, string);
 
 };
@@ -81,10 +84,13 @@ int main () {
     cout<<assistente.Student::getBirthDate()<<endl;
     cout<<assistente.Student::getSex()<<endl;
     cout<<assistente.Student::getUname()<<endl;
+    
     cout<<"Student's department: ";
     cout<<assistente.Student::getDepartment()<<endl;
+    
     cout<<"Teaching department: ";
     cout<<assistente.Teacher::getDepartment()<<endl;
+    
     cout<<assistente.getCourse()<<endl;
     
 }
@@ -119,7 +125,6 @@ string University::getUname (){
     return Uname;
 }
 
-
 // Classe Student
 Student::Student (string nome, string data, string sexo, string universidade, string depart)
 : Person (nome, data, sexo), University(universidade) {
@@ -147,6 +152,4 @@ string Teacher::getCourse (){
 
 // Classe TeachingAssistant
 TeachingAssistant::TeachingAssistant (string nome, string data, string sexo, string universidade, string stu_depart, string tea_depart, string curso) :
-Student(nome, data, sexo, universidade, stu_depart), Teacher (nome, data, sexo, universidade, tea_depart, curso) {
-    cout<<"Inicio"<<endl;
-}
+Student(nome, data, sexo, universidade, stu_depart), Teacher (nome, data, sexo, universidade, tea_depart, curso) {}
