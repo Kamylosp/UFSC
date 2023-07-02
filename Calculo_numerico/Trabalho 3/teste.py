@@ -1,6 +1,6 @@
 import numpy as np
 
-elipses = np.load("teste_e.npy")
+elipses = np.load('teste_e.npy')
 
 # Pontos conhecidos (x, y)
 pontos = elipses[0]
