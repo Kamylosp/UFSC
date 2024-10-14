@@ -68,7 +68,7 @@ O que um *RTOS* deve garantir
 
 2. *Periódicas*: 
 	+ Todas devem ser executadas
-	+ A tarefa é ativada a cada $Ti $ unidades de tempo 
+	+ A tarefa é ativada a cada $Ti$ unidades de tempo 
 	+ O instante de chegada pode ser calculado a partir do início
 
 3. *Esporádicas*: 
